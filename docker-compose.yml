@@ -1,8 +1,8 @@
 version: "3.9"
 
 services:
-  mongodb:
-    container_name: mongodb
+  db:
+    container_name: db
     image: mongo:4.4.6
     restart: unless-stopped
     command: mongod --auth
@@ -18,8 +18,24 @@ services:
       - ./backend/db/entrypoint:/docker-entrypoint-initdb.d
     expose:
       - 27017
-    ports: # For MongoDB Compass
+    ports: # Expose for MongoDB Compass
       - 27017:27017
+    networks:
+      - backend
+
+  api:
+    container_name: api
+    build:
+      dockerfile: Dockerfile
+      context: ./backend/api
+    restart: unless-stopped
+    volumes:
+      - ./backend/api:/app
+      - /app/node_modules
+    expose:
+      - 5000
+    ports:
+      - 5000:5000 # Expose for Postman
     networks:
       - backend
 
@@ -28,6 +44,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./frontend
+    restart: unless-stopped
     volumes:
       - ./frontend:/app
       - /app/node_modules
