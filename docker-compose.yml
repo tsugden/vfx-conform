@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: web
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
