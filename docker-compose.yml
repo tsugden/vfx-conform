@@ -1,6 +1,28 @@
 version: "3.9"
 
 services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.4.6
+    restart: unless-stopped
+    command: mongod --auth
+    environment:
+      MONGO_USER_USERNAME: "${MONGO_USER_USERNAME}"
+      MONGO_USER_PASSWORD: "${MONGO_USER_PASSWORD}"
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_ROOT_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_ROOT_PASSWORD}"
+      MONGO_DATABASE_DEV: "${MONGO_DATABASE_DEV}"
+      MONGO_DATABASE_TEST: "${MONGO_DATABASE_TEST}"
+    volumes:
+      - ./backend/db/data:/data/db
+      - ./backend/db/entrypoint:/docker-entrypoint-initdb.d
+    expose:
+      - 27017
+    ports: # For MongoDB Compass
+      - 27017:27017
+    networks:
+      - backend
+
   web:
     container_name: web
     build:
@@ -16,4 +38,6 @@ services:
 
 networks:
   frontend:
+    driver: bridge
+  backend:
     driver: bridge
