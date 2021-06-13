@@ -1,0 +1,22 @@
+.oc-page-container {
+  flex: 1;
+
+  display: flex;
+  flex-flow: row;
+
+  background: red;
+}
+
+.oc-assets-container {
+  flex: 1;
+  flex-flow: column;
+
+  background: orange;
+}
+
+.oc-sequence-container {
+  flex: 1;
+  flex-flow: column;
+
+  background: teal;
+}

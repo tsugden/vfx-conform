@@ -1,0 +1,32 @@
+.modal-actions {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-actions .modal-actions-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modal-actions.left .modal-actions-container {
+  justify-content: flex-start;
+}
+
+.modal-actions.right .modal-actions-container {
+  justify-content: flex-end;
+}
+
+.modal-actions.left .modal-actions-container > * {
+  margin-right: 10px;
+}
+
+.modal-actions.right .modal-actions-container > * {
+  margin-left: 10px;
+}

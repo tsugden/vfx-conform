@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.containerz {
+  color: #333;
+  background: #ededed;
+  border-radius: 10px;
+  padding: 0.75em;
+  margin-top: 20px;
+  box-shadow: 0px 3px 5px #00000033;
+  overflow: auto;
+  transition: padding-left ease 0.2s;
+}
+
+.containerz .info {
+  float: left;
+}
+
+.containerz .buttons {
+  float: right;
+}
+
+.containerz:hover {
+  background: #e5e5e5;
+  padding-left: 1.5em;
+}
+
+.containerz h4 {
+  margin: 0;
+}

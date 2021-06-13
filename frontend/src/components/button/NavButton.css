@@ -1,0 +1,27 @@
+.nav-button {
+  color: var(--grey-02);
+  font-size: 16px;
+  height: 100%;
+}
+
+.nav-button.big {
+  font-size: 28px;
+}
+
+.nav-button i {
+  font-size: inherit;
+  width: 1.2em;
+}
+
+.nav-button:hover {
+  color: pink;
+}
+
+.nav-button.selected > * {
+  color: var(--grey-08);
+}
+
+.nav-button:disabled {
+  color: var(--grey-04);
+  pointer-events: none;
+}

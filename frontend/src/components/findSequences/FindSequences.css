@@ -1,0 +1,7 @@
+.tr.selected {
+  background: orange;
+}
+
+.tbody .tr:hover {
+  color: teal;
+}

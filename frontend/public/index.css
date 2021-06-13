@@ -1,0 +1,18 @@
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 10px;
+}
+
+#root {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}

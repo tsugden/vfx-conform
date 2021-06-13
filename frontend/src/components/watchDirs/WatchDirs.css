@@ -1,0 +1,30 @@
+#watch-dirs .heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 12px;
+  background: #fff;
+  z-index: 5;
+  width: 100%;
+}
+
+#watch-dirs .heading-container h6 {
+  margin: 4px 0;
+}
+
+#watch-dirs .heading-container .button-box.right button {
+  font-size: 32px;
+  color: var(--grey-02);
+}
+
+#watch-dirs .heading-container .button-box.right button:disabled {
+  color: var(--grey-05);
+}
+
+#watch-dirs .heading-container .button-box.right button:hover {
+  color: darkorchid;
+}
+
+#watch-dirs .heading-container .button-box.right .spinner {
+  font-size: 26px;
+}

@@ -1,0 +1,19 @@
+.button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: inherit;
+}
+
+.button-box > * {
+  color: inherit;
+}
+
+.button-box.left > * {
+  margin-right: 12px;
+}
+
+.button-box.right > * {
+  margin-left: 12px;
+}

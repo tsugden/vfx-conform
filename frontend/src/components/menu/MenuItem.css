@@ -1,0 +1,13 @@
+.menu-item {
+  display: block;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  color: var(--grey-08);
+  margin-bottom: 8px;
+}
+
+.menu-item:hover {
+  color: pink;
+}

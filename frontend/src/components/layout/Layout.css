@@ -1,0 +1,212 @@
+.content-header {
+  flex: 0 0 auto;
+}
+
+.content-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
+  overflow-y: auto;
+}
+
+.wrapper {
+  display: flex;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.table-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr 24px;
+  grid-template-areas:
+    "title"
+    "header"
+    "body"
+    "margin";
+  height: 100%;
+}
+
+.table-title {
+  grid-area: title;
+  font-family: "Lato", serif;
+  font-size: 12px;
+  padding: 0 12px;
+  margin-bottom: 12px;
+}
+
+.table-header,
+.table-body {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-auto-rows: 28px;
+}
+
+.table-header {
+  grid-area: header;
+}
+
+.table-body {
+  grid-area: body;
+  background: var(--grey-08);
+  overflow-y: auto;
+}
+
+.table-container .table-header .table-row .table-item {
+  background: var(--grey-06);
+}
+
+.table-row {
+  display: contents;
+}
+
+/* Odd rows */
+.table-body .table-row:nth-child(2n) > * {
+  background: var(--grey-07);
+}
+
+/* Even rows */
+.table-body .table-row:nth-child(2n + 1) > * {
+  background: var(--grey-08);
+}
+
+.table-container.secondary .table-header .table-row .table-item {
+  background: var(--grey-06);
+}
+
+.table-container a {
+  font-size: 12px;
+}
+
+.table-item {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 12px;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+.table-item:nth-child(3n) {
+  justify-content: flex-end;
+}
+
+.path {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  overflow: hidden;
+}
+
+.status {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  overflow: hidden;
+}
+
+.actions {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  justify-self: right;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel > .carousel-item {
+  display: none;
+}
+
+.carousel > .carousel-item.selected {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header"
+    "body";
+
+  overflow-y: hidden;
+}
+
+.grid-header,
+.grid-body {
+  display: grid;
+  grid-template-columns: minmax(24px, auto) minmax(0, 600px) minmax(24px, auto);
+  grid-template-rows: 1fr;
+  grid-template-areas: ". content_ . ";
+}
+
+.grid-content {
+  grid-area: content_;
+}
+
+.grid-container > .grid-container {
+  grid-area: body;
+}
+
+.grid-container > .grid-header {
+  grid-area: header;
+}
+
+.grid-container > .grid-body {
+  grid-area: body;
+  overflow-y: auto;
+}
+
+/* TABLE */
+
+.table {
+  border-collapse: collapse;
+  white-space: nowrap;
+  /* table-layout: fixed; */
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.tbody .tr:nth-child(even) {
+  background: var(--grey-07);
+}
+
+.tbody .tr:nth-child(odd) {
+  background: var(--grey-08);
+}
+
+.tbody .tr.selected {
+  color: orange;
+}
+
+.tbody .tr:hover {
+  color: teal;
+}
+
+.tbody .tr.selected:hover {
+  color: orange;
+}
+
+.th,
+.td {
+  height: 24px;
+  vertical-align: middle;
+  padding: 0 8px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  font-weight: 400;
+
+  cursor: default;
+  user-select: none;
+}
+
+.th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  background: var(--grey-06);
+}

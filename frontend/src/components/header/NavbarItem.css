@@ -1,0 +1,13 @@
+.navbar-menu-item {
+  color: var(--grey-08);
+  height: 100%;
+}
+
+.navbar-menu-item:hover {
+  color: pink;
+}
+
+.navbar-menu-item:disabled {
+  color: var(--grey-04);
+  pointer-events: none;
+}

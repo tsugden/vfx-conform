@@ -1,0 +1,46 @@
+.btn {
+  font-size: 12px;
+  background: var(--grey-06);
+  padding: 0 8px;
+  margin: 0 4px;
+  height: 24px;
+  min-width: 52px;
+}
+
+.btn.secondary {
+  background: var(--grey-07);
+  color: var(--grey-02);
+}
+
+.btn:hover {
+  color: green;
+}
+
+.btn.menu {
+  display: block;
+  width: 100%;
+
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  padding: 0;
+  margin-bottom: 8px;
+
+  background: none;
+  border: none;
+
+  text-transform: unset;
+
+  color: var(--grey-08);
+  margin-bottom: 8px;
+}
+
+.btn.menu:hover {
+  color: pink;
+}
+
+.btn.btn-block {
+  display: block;
+  width: 100%;
+}

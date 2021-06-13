@@ -1,0 +1,15 @@
+.form {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 4px;
+  margin: 0 4px 4px 4px;
+  background: var(--grey-08);
+}
+
+.form .input {
+  flex: 1;
+}

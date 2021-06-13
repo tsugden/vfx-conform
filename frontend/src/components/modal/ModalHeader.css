@@ -1,0 +1,10 @@
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header > * {
+  font-weight: 700;
+  color: var(--grey-08);
+}

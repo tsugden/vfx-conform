@@ -1,0 +1,10 @@
+.card {
+  display: inline-block;
+  padding: 4px;
+  margin: 0 4px 4px 4px;
+  background: var(--grey-08);
+}
+
+.card.block {
+  display: block;
+}

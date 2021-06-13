@@ -1,0 +1,66 @@
+.watch-wrapper {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.watch-wrapper .form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.watch-wrapper input {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 4px 10px;
+  background: var(--grey-07);
+  border: none;
+  border-radius: 5px;
+}
+
+.watch-wrapper p {
+  flex: 1 1 auto;
+  padding: 4px 10px;
+  overflow: auto;
+}
+
+/*
+
+Buttons
+
+*/
+
+/*
+ * The input fields on the right have 4px padding.
+ * Compensate by reducing the margin.
+ */
+.watch-wrapper .button-box.left button {
+  margin-right: 8px;
+}
+
+.watch-wrapper .nav-button {
+  color: var(--grey-02);
+}
+
+.watch-wrapper .nav-button:disabled {
+  color: var(--grey-05);
+}
+
+.watch-wrapper .nav-button:hover {
+  color: darkorchid;
+}
+
+.watch-wrapper .nav-button.selected > * {
+  color: darkorchid;
+}
+
+.turnover-table {
+  margin-top: 12px;
+}
+
+#tomtest {
+  display: block;
+}

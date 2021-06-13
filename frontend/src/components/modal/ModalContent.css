@@ -1,0 +1,11 @@
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px;
+  overflow: auto;
+}
+
+.modal-content > * {
+  color: var(--grey-08);
+}
