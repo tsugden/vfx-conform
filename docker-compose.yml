@@ -22,15 +22,21 @@ services:
       - 27017:27017
     networks:
       - backend
+    logging:
+      driver: none
 
   api:
     container_name: api
     build:
       dockerfile: Dockerfile
-      context: ./backend/api
-    restart: unless-stopped
+      context: ./backend/app
+    environment:
+      MONGO_URI: "${MONGO_URI}"
+      MONGO_USER_USERNAME: "${MONGO_USER_USERNAME}"
+      MONGO_USER_PASSWORD: "${MONGO_USER_PASSWORD}"
+      MONGO_DATABASE_DEV: "${MONGO_DATABASE_DEV}"
     volumes:
-      - ./backend/api:/app
+      - ./backend/app:/app
       - /app/node_modules
     expose:
       - 5000
@@ -44,7 +50,6 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./frontend
-    restart: unless-stopped
     volumes:
       - ./frontend:/app
       - /app/node_modules
@@ -52,6 +57,8 @@ services:
       - 3000:3000
     networks:
       - frontend
+    depends_on:
+      - db
 
 networks:
   frontend:
