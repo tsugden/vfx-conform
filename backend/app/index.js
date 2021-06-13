@@ -1,7 +1,7 @@
 // Imports
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const { connectDB, disconnectDB } = require("./config/db");
+const { connectDB, disconnectDB } = require("./db/db");
 const error = require("./middleware/error");
 
 // Connect to database
