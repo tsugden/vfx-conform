@@ -2,10 +2,7 @@ version: "3.9"
 
 services:
   proxy:
-    container_name: proxy
-    build:
-      dockerfile: Dockerfile
-      context: ./proxy
+    build: ./proxy
     restart: always
     ports:
       - 3050:80
@@ -18,10 +15,9 @@ services:
       - web
 
   db:
-    container_name: db
     image: mongo:4.4.6
-    restart: unless-stopped
     command: mongod --auth
+    restart: unless-stopped
     environment:
       MONGO_USER_USERNAME: "${MONGO_USER_USERNAME}"
       MONGO_USER_PASSWORD: "${MONGO_USER_PASSWORD}"
@@ -30,8 +26,8 @@ services:
       MONGO_DATABASE_DEV: "${MONGO_DATABASE_DEV}"
       MONGO_DATABASE_TEST: "${MONGO_DATABASE_TEST}"
     volumes:
-      - ./backend/db/data:/data/db
-      - ./backend/db/entrypoint:/docker-entrypoint-initdb.d
+      - db_data:/data/db
+      - ./backend/app/db/entrypoint:/docker-entrypoint-initdb.d
     expose:
       - 27017
     networks:
@@ -40,35 +36,32 @@ services:
       driver: none
 
   api:
-    container_name: api
-    build:
-      dockerfile: Dockerfile
-      context: ./backend/app
+    build: ./backend
     environment:
       MONGO_URI: "${MONGO_URI}"
       MONGO_USER_USERNAME: "${MONGO_USER_USERNAME}"
       MONGO_USER_PASSWORD: "${MONGO_USER_PASSWORD}"
       MONGO_DATABASE_DEV: "${MONGO_DATABASE_DEV}"
+      MONGO_DATABASE_TEST: "${MONGO_DATABASE_TEST}"
+      JWT_SECRET: "${JWT_SECRET}"
+      JWT_EXPIRE: "${JWT_EXPIRE}"
     volumes:
-      - ./backend/app:/app
       - /app/node_modules
+      - ./backend:/app
+      - /co3fs:/co3fs:ro
+
     expose:
       - 5000
     networks:
       - backend
 
   web:
-    container_name: web
-    build:
-      dockerfile: Dockerfile
-      context: ./frontend
+    build: ./frontend
     volumes:
       - ./frontend:/app
       - /app/node_modules
     expose:
       - 3000
-    ports:
-      - 3000:3000
     networks:
       - frontend
 
@@ -77,3 +70,7 @@ networks:
     driver: bridge
   backend:
     driver: bridge
+
+volumes:
+  db_data:
+    driver: local
